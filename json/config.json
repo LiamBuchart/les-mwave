@@ -1,0 +1,30 @@
+{
+"topo" : {
+    "mht": 1000
+    },
+
+"sounding" : {
+    "P_sfc": 1020,
+    "T_sfc": 295,
+    "headers": ["height", "theta", "q", "U", "V"],
+    "headers_exps": ["1020", "295", "17", "Unnamed: 3", "Unamed: 4"]
+    },
+
+"grid_dimensions" : {
+    "ndx": 300,
+    "ndy": 150,
+    "dx":150,
+    "dy":150
+    },
+
+"exps" : {
+    "names": ["real", "stable", "neutstab", "logT", "low_step", "high_step"]
+    },
+
+"timing" : {
+    "ttd": 5
+    }
+
+}
+
+

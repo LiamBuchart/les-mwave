@@ -1,0 +1,34 @@
+# files to ignorei
+
+# wrf related files (too large)
+wrfout*
+wrfrst*
+wrfinput*
+core*
+wrf*
+
+# rsl files from cedar
+rsl.*
+
+# slurm files
+slurm*
+
+# backup sfire things
+*backup*
+
+# a few images
+SEARCH*
+test_set*
+U_wind*
+
+# slurm out files in /bin
+sim-*
+
+# dont have the virtual environment
+ENV
+
+# dont add the WRF-SFIRE stuff
+WRF-SFIRE/
+
+# dont add figures
+scripts/figures/
