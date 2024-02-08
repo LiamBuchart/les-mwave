@@ -50,8 +50,8 @@ dx = config["grid_dimensions"]["dx"]
 dy = config["grid_dimensions"]["dy"]
 
 # grab the component names of the momentum flux 
-components = ["x", "y", "z"]
-cc = ["xq", "yq", "zq"]  # names of the python variables
+components = ["x-moist", "y-moist", "z-moist"]
+cc = ["xm", "ym", "zm"]  # names of the python variables
 
 # initialize dataframe to store flux values
 df = pd.DataFrame( )
@@ -193,7 +193,7 @@ for ex in exps:
         
         # full momentum
         nQ = qux + qvy + qwz 
-        ic(np.max(M), np.min(M), np.mean(M))
+        ic(np.max(nQ), np.min(nQ), np.mean(nQ))
         
         # place momentums in a vector for dataframe
         # components into vectors
@@ -221,6 +221,7 @@ for ex in exps:
     
         data = {"value": component, "component": components[ii], "exp": ex, "Time": ct}  
         # fill our full dataframe with the above dictionary (easiest to normalize this way)
+        ic(data)
         df_full = pd.concat([df_full, pd.DataFrame.from_dict(data)])    
         
         df_comp["Times"] = Times
@@ -235,6 +236,6 @@ for ex in exps:
 df["Times"] = Times
 
 # save the dateframe
-df.to_csv("leeslope_momentum_flux.csv", sep=",", header=True)
+df.to_csv("leeslope_moisture_flux.csv", sep=",", header=True)
 
 print("Complete")

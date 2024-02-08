@@ -34,6 +34,10 @@ exps = config["exps"]["names"]
 mw_df = pd.DataFrame( )
 vpd_df = pd.DataFrame( )
 
+# define a distance from ridge top to calculate the hdw (just the lee slope)
+mt = 40  # index of maximum terrain height
+xx = [mt, mt+50]
+
 # loop through experiments to complete calculations
 for ex in exps:  
     count = 0
@@ -52,16 +56,16 @@ for ex in exps:
         ct = extract_times(ncfile, timeidx=0)
         
         # import all velocity directions
-        U = getvar(ncfile, "ua", units="m s-1", meta=True) * units('m/s')
-        V = getvar(ncfile, "va", units="m s-1", meta=True) * units('m/s')
-        W = getvar(ncfile, "wa", units="m s-1", meta=True) * units('m/s')
+        U = getvar(ncfile, "ua", units="m s-1", meta=True)[:, xx[0]:xx[1], :] * units('m/s')
+        V = getvar(ncfile, "va", units="m s-1", meta=True)[:, xx[0]:xx[1], :] * units('m/s')
+        W = getvar(ncfile, "wa", units="m s-1", meta=True)[:, xx[0]:xx[1], :] * units('m/s')
         
         SPD = np.sqrt( (U**2) + (V**2) + (W**2) )
         
         # import pressure, mixing ratio and temperature
-        P = getvar(ncfile, "pres", units="hPa", meta=True)
-        T = getvar(ncfile, "temp", units="degC", meta=True)
-        RH = getvar(ncfile, "rh", meta=True)
+        P = getvar(ncfile, "pres", units="hPa", meta=True)[:, xx[0]:xx[1], :]
+        T = getvar(ncfile, "temp", units="degC", meta=True)[:, xx[0]:xx[1], :]
+        RH = getvar(ncfile, "rh", meta=True)[:, xx[0]:xx[1], :]
         
         # calculate mixing ratio, vapour pressure and saturation vapour pressure
         Q = mpcalc.mixing_ratio_from_relative_humidity(P * units('hPa'), T * units('degC'), RH) 
