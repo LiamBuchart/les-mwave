@@ -81,7 +81,7 @@ plt.ylabel("HDW [ ]", fontsize=20)
 
 plt.xlim([0, max(mss)])
 plt.xticks(fontsize=15)
-ax.set_xticks(mss[5:])
+ax.set_xticks(mss)
 #ax.set_xticklabels(mss, **hfont)
 plt.xlabel("Minutes since start [mins]", fontsize=20)
 # now set most labels as invisible
