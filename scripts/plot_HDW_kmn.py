@@ -69,9 +69,10 @@ colors = cb_color_palete( exps )
 #plot
 ax = df.plot(x="MSS", y=cols, kind="line",
         color=colors,
-        figsize=(12, 12))
+        figsize=(12, 12), 
+        linewidth=3)
 
-plt.legend(loc="upper left", fontsize=20, frameon=False)
+leg = plt.legend(loc="upper left", fontsize=20, frameon=False)
 
 plt.title("Hot Dry Windy Index", fontsize=30)
 
@@ -102,7 +103,7 @@ ic(colors)
 ii = 0
 
 fig = plt.figure() 
-plt.title("HWD_Components")
+plt.title("HWD Components")
 plt.ylabel("Max Vapor Pressure Deficit [hPa]")
 plt.xlabel("Max Canopy Height Wind [m/s]")
 for ex in exps:
@@ -111,7 +112,7 @@ for ex in exps:
     x = wdf[ex].to_list()
     y = vpd_df[ex].to_list()
      
-    plt.scatter(x, y, color=colors[ex], label=ex, s=100)
+    plt.scatter(x, y, color=colors[ex], label=ex, s=80)
     
     ii += 1
     

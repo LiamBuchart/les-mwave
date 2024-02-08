@@ -76,8 +76,7 @@ for ex in exps:
         # vapour pressure deficit
         VPD = (SVP - VP) / 100  # convert to hPa
         #VPD.to('hPa')
-
-        
+ 
         # now only get values in lowest 50mb
         PM = np.max(P)
         P_use = PM - 50

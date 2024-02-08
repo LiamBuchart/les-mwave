@@ -74,7 +74,8 @@ mom_full["MSS"] = mss
 
 # plot the values first individually then as subplots
 mom_full.plot(x="MSS", y=cols, kind="line",
-        color=colors)
+        color=colors,
+        linewidth=2)
 
 plt.title(r'Control Volume Normalized Momentum Flux')
 plt.ylabel(r'Momentum Flux [ ]')

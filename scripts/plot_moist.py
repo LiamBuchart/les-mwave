@@ -72,7 +72,8 @@ moist_full["MSS"] = mss
 
 # plot the values first individually then as subplots
 moist_full.plot(x="MSS", y=cols, kind="line",
-        color=colors)
+        color=colors,
+        linewidth=2)
 
 plt.title(r'Control Volume Normalized Moisture Divergence')
 plt.ylabel(r'Moisture Divergence [$gkm^{-1}ms^{-1}$]')
@@ -121,7 +122,8 @@ for ex in exps:
         
         axs[line].plot(mss, df_plot["Norm"].tolist(), 
                        color=colors[ii],
-                       label=names[ii])
+                       label=names[ii],
+                       linewidth=2)
         
         ii += 1
               
